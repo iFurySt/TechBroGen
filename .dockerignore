@@ -1,0 +1,51 @@
+# Git
+.git
+.gitignore
+
+# GitHub
+.github
+
+# Documentation
+README.md
+*.md
+
+# Temporary files
+temp
+*.tmp
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs
+
+# Node modules (if any)
+node_modules
+
+# Environment files
+.env*
+
+# Test files
+*_test.go
+**/*_test.go
+
+# Build artifacts (excluding in source control)
+tbg
+
+# Makefile
+Makefile
