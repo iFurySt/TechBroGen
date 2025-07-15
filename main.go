@@ -16,6 +16,7 @@ import (
 
 type PostRequest struct {
 	Categories []string `json:"categories"`
+	Language   string   `json:"language"`
 }
 
 type PostResponse struct {
@@ -26,6 +27,22 @@ type PostResponse struct {
 }
 
 var geminiClient *genai.Client
+
+// Language mapping for prompt generation
+var languageNames = map[string]string{
+	"en": "English",
+	"zh": "Chinese (Simplified)",
+	"es": "Spanish",
+	"fr": "French",
+	"de": "German",
+	"ja": "Japanese",
+	"ko": "Korean",
+	"pt": "Portuguese",
+	"ru": "Russian",
+	"it": "Italian",
+	"ar": "Arabic",
+	"hi": "Hindi",
+}
 
 // Sample data from the original
 var saasExamples = []string{
@@ -112,7 +129,7 @@ func initGemini() error {
 	return nil
 }
 
-func generateWithGemini(ctx context.Context, categories []string) (string, error) {
+func generateWithGemini(ctx context.Context, categories []string, language string) (string, error) {
 	// Create examples based on selected categories
 	var examples []string
 	if contains(categories, "saas") {
@@ -129,7 +146,19 @@ func generateWithGemini(ctx context.Context, categories []string) (string, error
 		examples = append(examples, saasExamples...)
 	}
 
-	systemPrompt := `You are a TechBro Post Generator. Generate a short, satirical tech bro social media post in the style of the examples provided. The post should be cringe-worthy, overly motivational, and include typical tech bro buzzwords and hashtags. Keep it authentic to the TechBro culture on social media.
+	// Get language name for the prompt
+	languageName, exists := languageNames[language]
+	if !exists {
+		languageName = "English"
+		language = "en"
+	}
+
+	var languageInstruction string
+	if language != "en" {
+		languageInstruction = fmt.Sprintf(" Generate the post in %s. Make sure to adapt the tech bro culture and buzzwords to the target language while maintaining the satirical tone.", languageName)
+	}
+
+	systemPrompt := fmt.Sprintf(`You are a TechBro Post Generator. Generate a short, satirical tech bro social media post in the style of the examples provided. The post should be cringe-worthy, overly motivational, and include typical tech bro buzzwords and hashtags. Keep it authentic to the TechBro culture on social media.%s
 
 Make sure to:
 - Use short, punchy sentences
@@ -138,8 +167,15 @@ Make sure to:
 - Include buzzwords like "building", "scaling", "grinding", etc.
 - Keep it under 280 characters
 - Make it feel authentic but slightly exaggerated
+%s
 
-Examples:`
+Examples:`, languageInstruction, 
+		func() string {
+			if language != "en" {
+				return fmt.Sprintf("- Generate the content in %s", languageName)
+			}
+			return ""
+		}())
 
 	for _, example := range examples {
 		systemPrompt += "\n\n" + example
@@ -191,7 +227,7 @@ func generatePost(c *gin.Context) {
 	}
 
 	// Generate post text with Gemini
-	postText, err := generateWithGemini(c.Request.Context(), req.Categories)
+	postText, err := generateWithGemini(c.Request.Context(), req.Categories, req.Language)
 	if err != nil {
 		log.Printf("Error generating post: %v", err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate post"})

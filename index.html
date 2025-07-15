@@ -10,6 +10,24 @@
   <!-- Radial Gradient Background from Bottom -->
   <div class="absolute inset-0 z-0" style="background: radial-gradient(125% 125% at 50% 90%, #fff 40%, #7c3aed 100%);"></div>
 
+  <!-- Language Switcher -->
+  <div class="fixed top-6 right-20 z-20">
+    <select id="languageSelector" class="bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option value="en">🇺🇸 English</option>
+      <option value="zh">🇨🇳 中文</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="ko">🇰🇷 한국어</option>
+      <option value="pt">🇵🇹 Português</option>
+      <option value="ru">🇷🇺 Русский</option>
+      <option value="it">🇮🇹 Italiano</option>
+      <option value="ar">🇸🇦 العربية</option>
+      <option value="hi">🇮🇳 हिंदी</option>
+    </select>
+  </div>
+
   <!-- GitHub Repository Link -->
   <a href="https://github.com/ifuryst/TechBroGen" target="_blank" rel="noopener noreferrer" class="fixed top-6 right-6 flex items-center gap-2 text-black text-lg font-bold z-20 hover:text-gray-600 transition-colors">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
@@ -103,6 +121,233 @@ From $1 to $1M is just math.
 
   <script>
     const API_BASE = window.location.origin;
+    
+    // Language translations
+    const translations = {
+      en: {
+        generateBtn: "Generate a TechBro",
+        shareBtn: "Share this gem on X",
+        growthLabel: "GrowthMarketerBro",
+        aiLabel: "AIBro",
+        saasLabel: "SaaSBro",
+        offendedText: "I'm feeling offended",
+        loadingText: "Generating...",
+        alertText: "Please select at least one category!",
+        errorText: "Failed to generate post. Please try again.",
+        modalTitle: "Oh no! 😳",
+        modalText: "Sorry if this offended you.<br><br>Purpose of this project is to have fun and also to highlight the TechBro culture on social media. TechBro Generator encourages people to be creative and to be themselves, rather than copying others.<br><br>Feel free to close this message and generate another post!",
+        modalCloseBtn: "Close",
+        originalCredit: "Shoutout to the OG builder 🙏",
+        originalLink: "Original TechBro Generator ↗"
+      },
+      zh: {
+        generateBtn: "生成技术大佬",
+        shareBtn: "分享到 X",
+        growthLabel: "增长营销大佬",
+        aiLabel: "AI大佬",
+        saasLabel: "SaaS大佬",
+        offendedText: "我感到被冒犯了",
+        loadingText: "正在生成...",
+        alertText: "请至少选择一个类别！",
+        errorText: "生成帖子失败，请重试。",
+        modalTitle: "哦不！😳",
+        modalText: "如果这冒犯了你，我很抱歉。<br><br>这个项目的目的是为了好玩，也为了突出社交媒体上的技术大佬文化。技术大佬生成器鼓励人们保持创造力，做自己，而不是模仿他人。<br><br>随时关闭此消息并生成另一篇帖子！",
+        modalCloseBtn: "关闭",
+        originalCredit: "向原创建者致敬 🙏",
+        originalLink: "原版技术大佬生成器 ↗"
+      },
+      es: {
+        generateBtn: "Generar TechBro",
+        shareBtn: "Compartir en X",
+        growthLabel: "GrowthMarketerBro",
+        aiLabel: "AIBro",
+        saasLabel: "SaaSBro",
+        offendedText: "Me siento ofendido",
+        loadingText: "Generando...",
+        alertText: "¡Por favor selecciona al menos una categoría!",
+        errorText: "No se pudo generar el post. Inténtalo de nuevo.",
+        modalTitle: "¡Oh no! 😳",
+        modalText: "Lo siento si esto te ofendió.<br><br>El propósito de este proyecto es divertirse y también destacar la cultura TechBro en las redes sociales. TechBro Generator alienta a las personas a ser creativas y a ser ellas mismas, en lugar de copiar a otros.<br><br>¡Cierra este mensaje y genera otro post!",
+        modalCloseBtn: "Cerrar",
+        originalCredit: "Reconocimiento al creador original 🙏",
+        originalLink: "Generador TechBro Original ↗"
+      },
+      fr: {
+        generateBtn: "Générer un TechBro",
+        shareBtn: "Partager sur X",
+        growthLabel: "GrowthMarketerBro",
+        aiLabel: "AIBro",
+        saasLabel: "SaaSBro",
+        offendedText: "Je me sens offensé",
+        loadingText: "Génération...",
+        alertText: "Veuillez sélectionner au moins une catégorie !",
+        errorText: "Échec de la génération du post. Veuillez réessayer.",
+        modalTitle: "Oh non ! 😳",
+        modalText: "Désolé si cela vous a offensé.<br><br>Le but de ce projet est de s'amuser et aussi de mettre en évidence la culture TechBro sur les réseaux sociaux. TechBro Generator encourage les gens à être créatifs et à être eux-mêmes, plutôt que de copier les autres.<br><br>N'hésitez pas à fermer ce message et à générer un autre post !",
+        modalCloseBtn: "Fermer",
+        originalCredit: "Salut au créateur original 🙏",
+        originalLink: "Générateur TechBro Original ↗"
+      },
+      de: {
+        generateBtn: "TechBro generieren",
+        shareBtn: "Auf X teilen",
+        growthLabel: "GrowthMarketerBro",
+        aiLabel: "AIBro",
+        saasLabel: "SaaSBro",
+        offendedText: "Ich fühle mich beleidigt",
+        loadingText: "Generiere...",
+        alertText: "Bitte wähle mindestens eine Kategorie aus!",
+        errorText: "Post konnte nicht generiert werden. Bitte versuche es erneut.",
+        modalTitle: "Oh nein! 😳",
+        modalText: "Entschuldigung, falls das beleidigend war.<br><br>Der Zweck dieses Projekts ist es, Spaß zu haben und auch die TechBro-Kultur in den sozialen Medien hervorzuheben. TechBro Generator ermutigt Menschen, kreativ zu sein und sie selbst zu sein, anstatt andere zu kopieren.<br><br>Schließe diese Nachricht und generiere einen neuen Post!",
+        modalCloseBtn: "Schließen",
+        originalCredit: "Anerkennung an den ursprünglichen Ersteller 🙏",
+        originalLink: "Original TechBro Generator ↗"
+      },
+      ja: {
+        generateBtn: "テックブロを生成",
+        shareBtn: "Xでシェア",
+        growthLabel: "グロースマーケターブロ",
+        aiLabel: "AIブロ",
+        saasLabel: "SaaSブロ",
+        offendedText: "気分を害しています",
+        loadingText: "生成中...",
+        alertText: "少なくとも1つのカテゴリーを選択してください！",
+        errorText: "投稿の生成に失敗しました。もう一度お試しください。",
+        modalTitle: "あら！😳",
+        modalText: "気分を害してしまい申し訳ありません。<br><br>このプロジェクトの目的は楽しむことと、ソーシャルメディアのテックブロ文化を強調することです。テックブロジェネレーターは、他人をコピーするのではなく、創造的で自分らしくあることを奨励します。<br><br>このメッセージを閉じて別の投稿を生成してください！",
+        modalCloseBtn: "閉じる",
+        originalCredit: "オリジナル作成者に感謝 🙏",
+        originalLink: "オリジナルテックブロジェネレーター ↗"
+      },
+      ko: {
+        generateBtn: "테크브로 생성",
+        shareBtn: "X에 공유",
+        growthLabel: "그로스마케터브로",
+        aiLabel: "AI브로",
+        saasLabel: "SaaS브로",
+        offendedText: "기분이 상했습니다",
+        loadingText: "생성 중...",
+        alertText: "최소 하나의 카테고리를 선택해주세요!",
+        errorText: "포스트 생성에 실패했습니다. 다시 시도해주세요.",
+        modalTitle: "앗! 😳",
+        modalText: "기분을 상하게 해서 죄송합니다.<br><br>이 프로젝트의 목적은 재미를 위한 것이며 소셜 미디어의 테크브로 문화를 강조하는 것입니다. 테크브로 제너레이터는 사람들이 다른 사람을 복사하기보다는 창의적이고 자기 자신이 되도록 격려합니다.<br><br>이 메시지를 닫고 다른 포스트를 생성해보세요!",
+        modalCloseBtn: "닫기",
+        originalCredit: "오리지널 제작자에게 경의를 🙏",
+        originalLink: "오리지널 테크브로 제너레이터 ↗"
+      },
+      pt: {
+        generateBtn: "Gerar TechBro",
+        shareBtn: "Compartilhar no X",
+        growthLabel: "GrowthMarketerBro",
+        aiLabel: "AIBro",
+        saasLabel: "SaaSBro",
+        offendedText: "Estou me sentindo ofendido",
+        loadingText: "Gerando...",
+        alertText: "Por favor, selecione pelo menos uma categoria!",
+        errorText: "Falha ao gerar post. Tente novamente.",
+        modalTitle: "Oh não! 😳",
+        modalText: "Desculpe se isso te ofendeu.<br><br>O propósito deste projeto é se divertir e também destacar a cultura TechBro nas redes sociais. TechBro Generator encoraja as pessoas a serem criativas e a serem elas mesmas, em vez de copiar os outros.<br><br>Sinta-se à vontade para fechar esta mensagem e gerar outro post!",
+        modalCloseBtn: "Fechar",
+        originalCredit: "Reconhecimento ao criador original 🙏",
+        originalLink: "Gerador TechBro Original ↗"
+      },
+      ru: {
+        generateBtn: "Создать ТехБро",
+        shareBtn: "Поделиться в X",
+        growthLabel: "ГроусМаркетерБро",
+        aiLabel: "ИИБро",
+        saasLabel: "SaaSБро",
+        offendedText: "Я чувствую себя оскорбленным",
+        loadingText: "Создание...",
+        alertText: "Пожалуйста, выберите хотя бы одну категорию!",
+        errorText: "Не удалось создать пост. Попробуйте еще раз.",
+        modalTitle: "О нет! 😳",
+        modalText: "Извините, если это вас оскорбило.<br><br>Цель этого проекта - развлечься, а также подчеркнуть культуру ТехБро в социальных сетях. ТехБро Генератор призывает людей быть креативными и быть самими собой, а не копировать других.<br><br>Закройте это сообщение и создайте другой пост!",
+        modalCloseBtn: "Закрыть",
+        originalCredit: "Признание оригинальному создателю 🙏",
+        originalLink: "Оригинальный ТехБро Генератор ↗"
+      },
+      it: {
+        generateBtn: "Genera TechBro",
+        shareBtn: "Condividi su X",
+        growthLabel: "GrowthMarketerBro",
+        aiLabel: "AIBro",
+        saasLabel: "SaaSBro",
+        offendedText: "Mi sento offeso",
+        loadingText: "Generazione...",
+        alertText: "Seleziona almeno una categoria!",
+        errorText: "Impossibile generare il post. Riprova.",
+        modalTitle: "Oh no! 😳",
+        modalText: "Scusa se questo ti ha offeso.<br><br>Lo scopo di questo progetto è divertirsi e anche evidenziare la cultura TechBro sui social media. TechBro Generator incoraggia le persone a essere creative e a essere se stesse, piuttosto che copiare gli altri.<br><br>Chiudi questo messaggio e genera un altro post!",
+        modalCloseBtn: "Chiudi",
+        originalCredit: "Riconoscimento al creatore originale 🙏",
+        originalLink: "Generatore TechBro Originale ↗"
+      },
+      ar: {
+        generateBtn: "إنشاء تيك برو",
+        shareBtn: "مشاركة في X",
+        growthLabel: "جروث ماركيتر برو",
+        aiLabel: "إيه آي برو",
+        saasLabel: "ساس برو",
+        offendedText: "أشعر بالإهانة",
+        loadingText: "جاري الإنشاء...",
+        alertText: "يرجى تحديد فئة واحدة على الأقل!",
+        errorText: "فشل في إنشاء المنشور. يرجى المحاولة مرة أخرى.",
+        modalTitle: "يا لا! 😳",
+        modalText: "آسف إذا كان هذا مسيئاً لك.<br><br>الغرض من هذا المشروع هو الاستمتاع وأيضاً تسليط الضوء على ثقافة التيك برو في وسائل التواصل الاجتماعي. مولد التيك برو يشجع الناس على أن يكونوا مبدعين وأن يكونوا أنفسهم، بدلاً من تقليد الآخرين.<br><br>اغلق هذه الرسالة وولد منشوراً آخر!",
+        modalCloseBtn: "إغلاق",
+        originalCredit: "تقدير للمبدع الأصلي 🙏",
+        originalLink: "مولد التيك برو الأصلي ↗"
+      },
+      hi: {
+        generateBtn: "टेकब्रो जेनरेट करें",
+        shareBtn: "X पर शेयर करें",
+        growthLabel: "ग्रोथमार्केटरब्रो",
+        aiLabel: "एआईब्रो",
+        saasLabel: "सासब्रो",
+        offendedText: "मुझे अपमानित महसूस हो रहा है",
+        loadingText: "जेनरेट कर रहे हैं...",
+        alertText: "कृपया कम से कम एक कैटेगरी चुनें!",
+        errorText: "पोस्ट जेनरेट करने में विफल। कृपया फिर से कोशिश करें।",
+        modalTitle: "अरे नहीं! 😳",
+        modalText: "खुशी अगर इससे आपको अपमानित महसूस हुआ है।<br><br>इस प्रोजेक्ट का उद्देश्य मज़े करना है और सोशल मीडिया पर टेकब्रो कल्चर को हाइलाइट करना है। टेकब्रो जेनरेटर लोगों को रचनात्मक होने और खुद बनने के लिए प्रेरित करता है, दूसरों की नकल करने के बजाय।<br><br>इस संदेश को बंद करें और दूसरा पोस्ट जेनरेट करें!",
+        modalCloseBtn: "बंद करें",
+        originalCredit: "मूल निर्माता को सम्मान 🙏",
+        originalLink: "मूल टेकब्रो जेनरेटर ↗"
+      }
+    };
+    
+    let currentLanguage = localStorage.getItem('language') || 'en';
+
+    function updateUILanguage() {
+      const lang = translations[currentLanguage];
+      
+      // Update buttons
+      document.getElementById('generateText').textContent = lang.generateBtn;
+      document.getElementById('shareBtn').textContent = lang.shareBtn;
+      
+      // Update labels
+      document.querySelector('label[for="growthCheckbox"]').childNodes[2].textContent = lang.growthLabel;
+      document.querySelector('label[for="aiCheckbox"]').childNodes[2].textContent = lang.aiLabel;
+      document.querySelector('label[for="saasCheckbox"]').childNodes[2].textContent = lang.saasLabel;
+      
+      // Update other text elements
+      document.getElementById('offendedLink').textContent = lang.offendedText;
+      document.querySelector('.modal h2').innerHTML = lang.modalTitle;
+      document.querySelector('.modal p').innerHTML = lang.modalText;
+      document.getElementById('closeOffendedModal2').textContent = lang.modalCloseBtn;
+      
+      // Update credits
+      document.querySelector('.fixed.bottom-16 .text-sm').textContent = lang.originalCredit;
+      document.querySelector('.fixed.bottom-16 a:last-child').textContent = lang.originalLink;
+    }
+
+    function changeLanguage(lang) {
+      currentLanguage = lang;
+      localStorage.setItem('language', lang);
+      updateUILanguage();
+    }
 
     function getSelectedCategories() {
       const categories = [];
@@ -116,7 +361,7 @@ From $1 to $1M is just math.
       const categories = getSelectedCategories();
 
       if (categories.length === 0) {
-        alert('Please select at least one category!');
+        alert(translations[currentLanguage].alertText);
         return;
       }
 
@@ -128,6 +373,7 @@ From $1 to $1M is just math.
       generateBtn.disabled = true;
       generateText.classList.add('hidden');
       loadingSpinner.classList.remove('hidden');
+      loadingSpinner.textContent = translations[currentLanguage].loadingText;
 
       try {
         const response = await fetch(`${API_BASE}/api/generate`, {
@@ -135,7 +381,7 @@ From $1 to $1M is just math.
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ categories })
+          body: JSON.stringify({ categories, language: currentLanguage })
         });
 
         if (!response.ok) {
@@ -152,7 +398,7 @@ From $1 to $1M is just math.
 
       } catch (error) {
         console.error('Error generating post:', error);
-        alert('Failed to generate post. Please try again.');
+        alert(translations[currentLanguage].errorText);
       } finally {
         // Hide loading state
         generateBtn.disabled = false;
@@ -170,6 +416,11 @@ From $1 to $1M is just math.
     // Event listeners
     document.getElementById('generateBtn').addEventListener('click', generateProfile);
     document.getElementById('shareBtn').addEventListener('click', sharePost);
+    
+    // Language selector event listener
+    document.getElementById('languageSelector').addEventListener('change', function(e) {
+      changeLanguage(e.target.value);
+    });
 
     // Ensure at least one checkbox is always checked
     const checkboxes = [
@@ -207,8 +458,11 @@ From $1 to $1M is just math.
       offendedModal.classList.add('hidden');
     });
 
-    // Generate a random profile on initial load (optional)
-    // window.onload = generateProfile;
+    // Initialize language on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('languageSelector').value = currentLanguage;
+      updateUILanguage();
+    });
   </script>
 </body>
 </html>
