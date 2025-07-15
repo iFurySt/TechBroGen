@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechBro Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen w-full relative overflow-x-hidden">
+  <!-- Radial Gradient Background from Bottom -->
+  <div class="absolute inset-0 z-0" style="background: radial-gradient(125% 125% at 50% 90%, #fff 40%, #7c3aed 100%);"></div>
+
+  <!-- GitHub Repository Link -->
+  <a href="https://github.com/ifuryst/TechBroGen" target="_blank" rel="noopener noreferrer" class="fixed top-6 right-6 flex items-center gap-2 text-black text-lg font-bold z-20 hover:text-gray-600 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+    </svg>
+  </a>
+
+  <!-- Main Content -->
+  <div class="relative z-10 flex flex-col min-h-screen">
+    <div class="flex-1 flex flex-col items-center justify-center">
+      <div id="post" class="max-w-md w-full bg-black text-white rounded-lg p-6 shadow-lg mt-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <img id="avatar" class="w-12 h-12 rounded-full mr-3 border-2 border-yellow-400" alt="Avatar" src="/assets/profile.jpeg">
+            <div>
+              <span id="name" class="font-bold">BuildBro</span>
+              <div id="handle" class="text-gray-400 text-sm">@launchLynx</div>
+            </div>
+          </div>
+          <div id="postText" class="text-lg whitespace-pre-line">Just hit $1 MRR.
+The journey from $0 to $1 is the hardest.
+From $1 to $1M is just math.
+#founderjourney #buildinpublic #SaaSgrind</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex flex-col items-center mb-8">
+      <div class="mb-4 flex gap-6 text-white">
+        <label class="flex items-center gap-2 text-gray-800 font-bold">
+          <input type="checkbox" id="growthCheckbox" checked class="form-checkbox text-blue-500">
+          GrowthMarketerBro
+        </label>
+        <label class="flex items-center gap-2 text-gray-800 font-bold">
+          <input type="checkbox" id="aiCheckbox" checked class="form-checkbox text-blue-500">
+          AIBro
+        </label>
+        <label class="flex items-center gap-2 text-gray-800 font-bold">
+          <input type="checkbox" id="saasCheckbox" checked class="form-checkbox text-blue-500">
+          SaaSBro
+        </label>
+      </div>
+
+      <div class="flex gap-4">
+        <button id="generateBtn" class="px-8 py-4 text-2xl bg-blue-500 text-white rounded-xl hover:bg-blue-600 disabled:opacity-50">
+          <span id="generateText">Generate a TechBro</span>
+          <span id="loadingSpinner" class="hidden">Generating...</span>
+        </button>
+        <button id="shareBtn" class="px-8 py-4 text-2xl bg-black text-white rounded-xl border-2 transition-colors">Share this gem on X</button>
+      </div>
+    </div>
+
+    <!-- Original Creator -->
+    <div class="fixed bottom-16 left-6 flex flex-col gap-1 text-black text-lg font-bold z-20">
+      <div class="text-sm font-normal">Shoutout to the OG builder 🙏</div>
+      <a href="https://x.com/eswordert" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-blue-600 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" class="w-6 h-6">
+          <path d="M32.29 7.71a1 1 0 0 0-1.42 0L20 18.59 9.13 7.71A1 1 0 0 0 7.71 9.13L18.59 20 7.71 30.87a1 1 0 1 0 1.42 1.42L20 21.41l10.87 10.88a1 1 0 0 0 1.42-1.42L21.41 20l10.88-10.87a1 1 0 0 0 0-1.42z"></path>
+        </svg>
+        @eswordert
+      </a>
+      <a href="https://techbrogenerator.netlify.app/" target="_blank" rel="noopener noreferrer" class="text-sm font-normal hover:text-blue-600 transition-colors">
+        Original TechBro Generator ↗
+      </a>
+    </div>
+
+
+    <!-- My Twitter -->
+    <a href="https://x.com/leoinbeta" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 flex items-center gap-2 text-black text-lg font-bold z-20 hover:text-blue-600 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" class="w-6 h-6">
+        <path d="M32.29 7.71a1 1 0 0 0-1.42 0L20 18.59 9.13 7.71A1 1 0 0 0 7.71 9.13L18.59 20 7.71 30.87a1 1 0 1 0 1.42 1.42L20 21.41l10.87 10.88a1 1 0 0 0 1.42-1.42L21.41 20l10.88-10.87a1 1 0 0 0 0-1.42z"></path>
+      </svg>
+      @leoinbeta
+    </a>
+
+    <!-- I'm feeling offended -->
+    <a href="#" id="offendedLink" class="fixed bottom-6 right-6 flex items-center gap-2 text-black text-2xl font-bold z-20 hover:text-red-600 transition-colors">
+      I'm feeling offended
+    </a>
+
+    <!-- Offended Modal -->
+    <div id="offendedModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 hidden">
+      <div class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full text-center relative">
+        <button id="closeOffendedModal" class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold">×</button>
+        <h2 class="text-2xl font-bold mb-4 text-red-600">Oh no! 😳</h2>
+        <p class="mb-6 text-gray-800">Sorry if this offended you.<br><br>Purpose of this project is to have fun and also to highlight the TechBro culture on social media. TechBro Generator encourages people to be creative and to be themselves, rather than copying others.<br><br>Feel free to close this message and generate another post!</p>
+        <button id="closeOffendedModal2" class="mt-2 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = window.location.origin;
+
+    function getSelectedCategories() {
+      const categories = [];
+      if (document.getElementById('growthCheckbox').checked) categories.push('growth');
+      if (document.getElementById('aiCheckbox').checked) categories.push('ai');
+      if (document.getElementById('saasCheckbox').checked) categories.push('saas');
+      return categories;
+    }
+
+    async function generateProfile() {
+      const categories = getSelectedCategories();
+
+      if (categories.length === 0) {
+        alert('Please select at least one category!');
+        return;
+      }
+
+      // Show loading state
+      const generateBtn = document.getElementById('generateBtn');
+      const generateText = document.getElementById('generateText');
+      const loadingSpinner = document.getElementById('loadingSpinner');
+
+      generateBtn.disabled = true;
+      generateText.classList.add('hidden');
+      loadingSpinner.classList.remove('hidden');
+
+      try {
+        const response = await fetch(`${API_BASE}/api/generate`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ categories })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Update the UI with the generated data
+        document.getElementById('name').textContent = data.name;
+        document.getElementById('handle').textContent = data.handle;
+        document.getElementById('avatar').src = data.avatar;
+        document.getElementById('postText').textContent = data.postText;
+
+      } catch (error) {
+        console.error('Error generating post:', error);
+        alert('Failed to generate post. Please try again.');
+      } finally {
+        // Hide loading state
+        generateBtn.disabled = false;
+        generateText.classList.remove('hidden');
+        loadingSpinner.classList.add('hidden');
+      }
+    }
+
+    function sharePost() {
+      const postText = document.getElementById('postText').textContent;
+      const url = `https://x.com/intent/tweet?text=${encodeURIComponent(postText)}`;
+      window.open(url, '_blank');
+    }
+
+    // Event listeners
+    document.getElementById('generateBtn').addEventListener('click', generateProfile);
+    document.getElementById('shareBtn').addEventListener('click', sharePost);
+
+    // Ensure at least one checkbox is always checked
+    const checkboxes = [
+      document.getElementById('growthCheckbox'),
+      document.getElementById('aiCheckbox'),
+      document.getElementById('saasCheckbox')
+    ];
+
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function(e) {
+        const checkedCount = checkboxes.filter(cb => cb.checked).length;
+        if (checkedCount === 0) {
+          // Prevent unchecking the last checked box
+          e.target.checked = true;
+        }
+      });
+    });
+
+    // Offended Modal logic
+    const offendedLink = document.getElementById('offendedLink');
+    const offendedModal = document.getElementById('offendedModal');
+    const closeOffendedModal = document.getElementById('closeOffendedModal');
+    const closeOffendedModal2 = document.getElementById('closeOffendedModal2');
+
+    offendedLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      offendedModal.classList.remove('hidden');
+    });
+
+    closeOffendedModal.addEventListener('click', function() {
+      offendedModal.classList.add('hidden');
+    });
+
+    closeOffendedModal2.addEventListener('click', function() {
+      offendedModal.classList.add('hidden');
+    });
+
+    // Generate a random profile on initial load (optional)
+    // window.onload = generateProfile;
+  </script>
+</body>
+</html>
