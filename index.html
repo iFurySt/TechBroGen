@@ -96,11 +96,11 @@ From $1 to $1M is just math.
 
 
     <!-- My Twitter -->
-    <a href="https://x.com/leoinbeta" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 flex items-center gap-2 text-black text-lg font-bold z-20 hover:text-blue-600 transition-colors">
+    <a href="https://x.com/leoifuryst" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 flex items-center gap-2 text-black text-lg font-bold z-20 hover:text-blue-600 transition-colors">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" class="w-6 h-6">
         <path d="M32.29 7.71a1 1 0 0 0-1.42 0L20 18.59 9.13 7.71A1 1 0 0 0 7.71 9.13L18.59 20 7.71 30.87a1 1 0 1 0 1.42 1.42L20 21.41l10.87 10.88a1 1 0 0 0 1.42-1.42L21.41 20l10.88-10.87a1 1 0 0 0 0-1.42z"></path>
       </svg>
-      @leoinbeta
+      @leoifuryst
     </a>
 
     <!-- I'm feeling offended -->
@@ -121,7 +121,7 @@ From $1 to $1M is just math.
 
   <script>
     const API_BASE = window.location.origin;
-    
+
     // Language translations
     const translations = {
       en: {
@@ -317,27 +317,27 @@ From $1 to $1M is just math.
         originalLink: "मूल टेकब्रो जेनरेटर ↗"
       }
     };
-    
+
     let currentLanguage = localStorage.getItem('language') || 'en';
 
     function updateUILanguage() {
       const lang = translations[currentLanguage];
-      
+
       // Update buttons
       document.getElementById('generateText').textContent = lang.generateBtn;
       document.getElementById('shareBtn').textContent = lang.shareBtn;
-      
+
       // Update labels
       document.querySelector('label[for="growthCheckbox"]').childNodes[2].textContent = lang.growthLabel;
       document.querySelector('label[for="aiCheckbox"]').childNodes[2].textContent = lang.aiLabel;
       document.querySelector('label[for="saasCheckbox"]').childNodes[2].textContent = lang.saasLabel;
-      
+
       // Update other text elements
       document.getElementById('offendedLink').textContent = lang.offendedText;
       document.querySelector('.modal h2').innerHTML = lang.modalTitle;
       document.querySelector('.modal p').innerHTML = lang.modalText;
       document.getElementById('closeOffendedModal2').textContent = lang.modalCloseBtn;
-      
+
       // Update credits
       document.querySelector('.fixed.bottom-16 .text-sm').textContent = lang.originalCredit;
       document.querySelector('.fixed.bottom-16 a:last-child').textContent = lang.originalLink;
@@ -416,7 +416,7 @@ From $1 to $1M is just math.
     // Event listeners
     document.getElementById('generateBtn').addEventListener('click', generateProfile);
     document.getElementById('shareBtn').addEventListener('click', sharePost);
-    
+
     // Language selector event listener
     document.getElementById('languageSelector').addEventListener('change', function(e) {
       changeLanguage(e.target.value);
